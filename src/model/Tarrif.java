@@ -7,9 +7,11 @@ import java.util.Map;
 import java.util.Set;
 
 /**
+ * This abstract class describes general structure of mobile tariff in the
+ * mobile company
  * 
  * @author Svitlana Namchuk 16.11.16
- *
+ * @version 2 16.11.16
  */
 public abstract class Tarrif {
 	private String name;

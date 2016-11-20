@@ -1,16 +1,15 @@
 package controller;
 
 /**
- * 
+ * This class represents a controller in MVC pattern
  * @author Svitlana Namchuk 16.11.16
- *
+ * @version 2  16.11.16
  */
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
-
 import filler.Filler;
 import model.Tarrif;
 import view.View;
@@ -25,7 +24,7 @@ public class Controller {
 	}
 
 	public Controller() {
-	
+		// TODO Auto-generated constructor stub
 	}
 
 	public List<Tarrif> getTarrifsList() {
@@ -53,33 +52,37 @@ public class Controller {
 	 *            chosen item
 	 * @return menu item
 	 */
+	enum Choice {
+		PRINT_TARRIF, PRINT_TOTAL_NUMBER_CLIENTS, SORT_BY_PRICE, SEARCH_TARRIF, EXIT
+	};
+
 	public int checkMenu(String menu) {
-		int choice = 0;
-		switch (menu.charAt(0)) {
-		case '1':
-			choice = 1;
+		int choice = Character.getNumericValue(menu.charAt(0));
+		if (choice > 5 || choice < 1) {
+			return 0;
+		}
+		Choice s = Choice.values()[choice - 1];
+		switch (s) {
+		case PRINT_TARRIF:
 			view.printMessage(View.TARRIF_LIST);
 			view.printMessage(getTarrifsList());
 			runMenu();
 			return choice;
-		case '2':
-			choice = 2;
+		case PRINT_TOTAL_NUMBER_CLIENTS:
 			view.printMessage(View.TOTAL_NUMBER_CLIENTS);
 			view.printMessage(getNumberClients(tarrifs));
 			runMenu();
 			return choice;
-		case '3':
-			choice = 3;
+		case SORT_BY_PRICE:
 			view.printMessage(View.SORT);
 			view.printMessage(sortTarrifs(tarrifs));
 			runMenu();
 			return choice;
-		case '4':
-			choice = 4;
+		case SEARCH_TARRIF:
 			view.printMessage(View.MAX_PRICE);
 			int maxPrice = 0;
-			while(maxPrice<=0){
-			maxPrice=setMaxPrice(maxPrice);
+			while (maxPrice <= 0) {
+				maxPrice = setMaxPrice(maxPrice);
 			}
 			view.printMessage(View.SERVICE_NAME);
 			String serviceName = setServiceName();
@@ -91,13 +94,12 @@ public class Controller {
 			}
 			runMenu();
 			return choice;
-		case '5':
-			choice = 5;
+		case EXIT:
 			return choice;
 		default:
-			return choice;
-
+			return 0;
 		}
+
 	}
 
 	/**

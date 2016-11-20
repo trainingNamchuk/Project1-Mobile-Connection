@@ -1,9 +1,10 @@
 package model;
 
 /**
+ * This class represents one of the current tariff in the mobile company
  * 
  * @author Svitlana Namchuk 16.11.16
- *
+ * @version 2 16.11.16
  */
 public class Smartphone3G extends Tarrif {
 	public static Smartphone3G obj = new Smartphone3G();

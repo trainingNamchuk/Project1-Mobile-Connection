@@ -7,9 +7,10 @@ import filler.Filler;
 import view.View;
 
 /**
+ * This class tests correct work of methods in the controller
  * 
  * @author Svitlana Namchuk 16.11.16
- *
+ * @version 2 16.11.16
  */
 public class Tester {
 
@@ -19,12 +20,12 @@ public class Tester {
 		filler.toFillData();
 		View view = new View();
 		Controller c = new Controller(view, filler);
-		assertTrue(c.checkMenu("1") == 1);
-		assertTrue(c.checkMenu("2") == 2);
-		assertTrue(c.checkMenu("3") == 3);
-		assertTrue(c.checkMenu("4") == 4);
-		assertTrue(c.checkMenu("5") == 5);
-		assertTrue(c.checkMenu("6") == 0);
+		assertTrue("Print tarrif",c.checkMenu("1") == 1);
+		assertTrue("Print the total number of clients",c.checkMenu("2") == 2);
+		assertTrue("Sort tarrifs by price",c.checkMenu("3") == 3);
+		assertTrue("Search tarrifs",c.checkMenu("4") == 4);
+		assertTrue("Exit",c.checkMenu("5") == 5);
+		assertTrue("Wrong item!",c.checkMenu("6") == 0);
 	}
 
 	@Test

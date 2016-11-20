@@ -9,6 +9,13 @@ import model.SmartFamilly;
 import model.Smartphone3G;
 import model.Tarrif;
 
+/**
+ * This class fills initial data to model classes
+ * 
+ * @author Svitlana Namchuk
+ * @version 2 16.11.16
+ */
+
 public class Filler {
 	private MobileTarrifFactory factory;
 	private List<Tarrif> tarrifs;

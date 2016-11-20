@@ -5,9 +5,10 @@ import filler.Filler;
 import view.View;
 
 /**
+ * This class runs the controller.
  * 
- * @author Svitlana Namchuk 16.11.16
- *
+ * @author Svitlana Namchuk
+ * @version 2  16.11.16
  */
 public class Main {
 
@@ -17,7 +18,7 @@ public class Main {
 		Filler filler = new Filler();
 		// Fill data
 		filler.toFillData();
-		Controller controller = new Controller(view,filler);
+		Controller controller = new Controller(view, filler);
 		// Run
 		controller.runMenu();
 	}

@@ -1,9 +1,9 @@
 package view;
 
 /**
- * 
+ * This class represents a view in MVC pattern
  * @author Svitlana Namchuk 16.11.16
- *
+ * @version 2  16.11.16
  */
 import java.util.ArrayList;
 import java.util.List;
