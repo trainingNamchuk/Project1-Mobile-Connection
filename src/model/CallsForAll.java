@@ -7,16 +7,10 @@ package model;
  * @version 2 16.11.16
  */
 public class CallsForAll extends Tarrif {
-	public static CallsForAll obj = new CallsForAll();
 	private Double priceRouming;
 
-	/**
-	 * Method return object of class
-	 * 
-	 * @return
-	 */
-	public static CallsForAll getObj() {
-		return obj;
+	public CallsForAll() {
+		super();
 	}
 
 	public Double getPriceRouming() {

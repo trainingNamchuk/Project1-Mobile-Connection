@@ -12,13 +12,13 @@ public class MobileTarrifFactory {
 			return null;
 		}
 		if (tarrifType.equalsIgnoreCase("Smart Familly")) {
-			return SmartFamilly.getObj();
+			return  new SmartFamilly();
 		}
 		if (tarrifType.equalsIgnoreCase("Smartphone 3G")) {
-			return Smartphone3G.getObj();
+			return new Smartphone3G();
 		}
 		if (tarrifType.equalsIgnoreCase("Calls for all")) {
-			return CallsForAll.getObj();
+			return new CallsForAll();
 		}
 		return null;
 	}

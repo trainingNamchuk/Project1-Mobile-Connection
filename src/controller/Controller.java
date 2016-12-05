@@ -10,25 +10,22 @@ import java.util.Collections;
 import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
-import filler.Filler;
+
 import model.Tarrif;
+import filler.Filler;
 import view.View;
 
 public class Controller {
 	private View view;
-	private List<Tarrif> tarrifs;
+	private Filler filler;
 
 	public Controller(View view, Filler filler) {
 		this.view = view;
-		this.tarrifs = filler.getTarrifs();
+		this.filler = filler;
 	}
 
 	public Controller() {
 		// TODO Auto-generated constructor stub
-	}
-
-	public List<Tarrif> getTarrifsList() {
-		return tarrifs;
 	}
 
 	/**
@@ -65,17 +62,17 @@ public class Controller {
 		switch (s) {
 		case PRINT_TARRIF:
 			view.printMessage(View.TARRIF_LIST);
-			view.printMessage(getTarrifsList());
+			view.printMessage(filler.getTarrifs());
 			runMenu();
 			return choice;
 		case PRINT_TOTAL_NUMBER_CLIENTS:
 			view.printMessage(View.TOTAL_NUMBER_CLIENTS);
-			view.printMessage(getNumberClients(tarrifs));
+			view.printMessage(getNumberClients(filler.getTarrifs()));
 			runMenu();
 			return choice;
 		case SORT_BY_PRICE:
 			view.printMessage(View.SORT);
-			view.printMessage(sortTarrifs(tarrifs));
+			view.printMessage(sortTarrifs(filler.getTarrifs()));
 			runMenu();
 			return choice;
 		case SEARCH_TARRIF:
@@ -88,7 +85,7 @@ public class Controller {
 			String serviceName = setServiceName();
 			if (isTarrifFound(maxPrice, serviceName)) {
 				view.printMessage(View.FOUND_TARRIF);
-				view.printMessage(searchTarrifs(tarrifs, maxPrice, serviceName));
+				view.printMessage(searchTarrifs(filler.getTarrifs(), maxPrice, serviceName));
 			} else {
 				view.printMessage(View.NOTHING_FOUND);
 			}
@@ -189,7 +186,7 @@ public class Controller {
 	 * @param serviceName
 	 */
 	public boolean isTarrifFound(int maxPrice, String serviceName) {
-		if (searchTarrifs(tarrifs, maxPrice, serviceName).isEmpty()) {
+		if (searchTarrifs((filler.getTarrifs()), maxPrice, serviceName).isEmpty()) {
 			return false;
 		} else {
 			return true;

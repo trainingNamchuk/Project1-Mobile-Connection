@@ -7,17 +7,12 @@ package model;
  * @version 2 16.11.16
  */
 public class SmartFamilly extends Tarrif {
-	public static SmartFamilly obj = new SmartFamilly();
-	private Integer numberOfUsers;
 
-	/**
-	 * Method return object of class
-	 * 
-	 * @return
-	 */
-	public static SmartFamilly getObj() {
-		return obj;
+	public SmartFamilly() {
+		super();
 	}
+
+	private Integer numberOfUsers;
 
 	public Double getNumberOfUsers() {
 		return numberOfUsers.doubleValue();

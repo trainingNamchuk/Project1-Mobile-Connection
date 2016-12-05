@@ -3,6 +3,7 @@ package filler;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
 import model.CallsForAll;
 import model.MobileTarrifFactory;
 import model.SmartFamilly;
@@ -31,7 +32,7 @@ public class Filler {
 		this.factory = new MobileTarrifFactory();
 		this.tarrifs = new ArrayList<>(Arrays.asList(factory.getMobileTarrif("Smartphone 3G"),
 				factory.getMobileTarrif("Calls for all"), factory.getMobileTarrif("Smart familly")));
-		smartFamilly = SmartFamilly.getObj();
+		smartFamilly = (SmartFamilly) tarrifs.get(2);
 		smartFamilly.setName("Smart Familly");
 		smartFamilly.setPrice(135);
 		smartFamilly.addAbonents(Arrays.asList("+380635478927", "+380635499323", "+380636395312"));
@@ -43,7 +44,7 @@ public class Filler {
 		smartFamilly.addServices("Outside calls", smartFamilly.getPriceOutsideCalls());
 		smartFamilly.addServices("SMS", smartFamilly.getPriceSms());
 		smartFamilly.addServices("Number of users", smartFamilly.getNumberOfUsers());
-		smartPhone = Smartphone3G.getObj();
+		smartPhone = (Smartphone3G) tarrifs.get(0);
 		smartPhone.setName("Smart phone 3G");
 		smartPhone.setPrice(60);
 		smartPhone.addAbonents(Arrays.asList("+380635473927", "+380635473923"));
@@ -55,7 +56,7 @@ public class Filler {
 		smartPhone.addServices("Outside calls", smartPhone.getPriceOutsideCalls());
 		smartPhone.addServices("SMS", smartPhone.getPriceSms());
 		smartPhone.addServices("Internet 3G", smartPhone.getPriceInternet3G());
-		callsAll = CallsForAll.getObj();
+		callsAll = (CallsForAll) tarrifs.get(1);
 		callsAll.setName("Calls for all");
 		callsAll.setPrice(20);
 		callsAll.addAbonents(Arrays.asList("+380635473444", "+380635423924", "+380638975488"));
